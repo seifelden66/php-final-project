@@ -2,8 +2,8 @@
 <?php
 
 require('../database/database.php');
-require('../controllers/UserController.php');
-require('../helper/ValidateUserData.php');
+require('../controllers/userController.php');
+require('../helper/validateUserData.php');
 
 header("content-type: application/json");  // tell the client the response will be json data
 

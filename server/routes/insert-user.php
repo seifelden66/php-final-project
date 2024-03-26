@@ -2,8 +2,8 @@
 <?php
 
 require('../database/database.php');
-require('../controllers/UserController.php');
-require('../helper/ValidateUserData.php');
+require('../controllers/userController.php');
+require('../helper/validateUserData.php');
 
 
 
