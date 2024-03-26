@@ -111,4 +111,18 @@ class UserController
             }
         }
     }
+    //NOTE - user profile 
+    public function profile($token)
+    {
+        session_start();
+        if (isset($_SESSION[$token])) {
+            $id = $_SESSION[$token];
+            $this->db->query("SELECT * FROM applicants WHERE id = $id");
+            $user = $this->db->select();
+            unset($user['password']);
+            return json_encode($user);
+        } else {
+            return json_encode(['message' => 'somthing wrong']);
+        }
+    }
 }
