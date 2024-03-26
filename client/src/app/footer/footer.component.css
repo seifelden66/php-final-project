@@ -1,0 +1,4 @@
+footer{
+    background-color: var(--footer) !important ;
+    color: var(--log_text) !important;
+}

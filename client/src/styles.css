@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+/* @import "~mdb-angular-ui-kit/assets/scss/mdb.scss"; */
+
+/* @import '~mdb-angular-ui-kit/assets/scss/mdb'; */
+
+
+
+
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+
+}
+:root{
+    --page: #F0F0F0;
+    --footer: #213655;
+    --Nav : #4F709D;
+    --log_text : #E5D283 ;
+}
+
+body{
+    background-color: var(--page);
+}
+

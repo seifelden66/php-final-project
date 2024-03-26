@@ -1,0 +1,85 @@
+<nav class="navbar d-none d-xxl-flex d-xl-flex   navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Jops</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " [routerLinkActiveOptions]="{exact:true}" routerLink="/" routerLinkActive="active_link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="profile" routerLinkActive="active_link" >Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#">ContactUs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="alljobs" routerLinkActive="active_link">All-jobs</a>
+        </li>
+
+
+      </ul>
+      <div class="Btns d-flex gap-5">
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sign In
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Orgnization</a></li>
+            <li><a class="dropdown-item" href="#">User</a></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-light">LogIN</button>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container-fluid w-100 d-flex d-xxl-none d-xl-none pt-3 pb-3">
+  <button class="btn btn-secondary   " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-house"></i></button>
+
+<div class="offcanvas offcanvas-start    " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"><i class="fa-solid fa-house"></i></h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+
+<div class="offcanvas-body">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link " [routerLinkActiveOptions]="{exact:true}" routerLink="/" routerLinkActive="active_link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile" routerLinkActive="active_link" >Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">ContactUs</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="alljobs" routerLinkActive="active_link">All-jobs</a>
+      </li>
+
+    </ul>
+    <div class="Btns d-flex gap-5">
+      <button type="button" class="btn btn-light">SignIn</button>
+      <button type="button" class="btn btn-light">LogIN</button>
+
+  </div>
+</div>
+</div>
+
+
+</div>

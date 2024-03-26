@@ -1,0 +1,54 @@
+.navbar{
+    background-color: var(--Nav) !important;
+    
+}
+
+.container-fluid > a{
+
+    color: var(--log_text);
+    font-size: 25px;
+}
+
+.dropdown{
+    border: solid 1px white;
+    border-radius: 7px;
+}
+
+.navbar-nav li a{
+    color: var(--log_text);
+
+}
+
+.Btns button{
+    color: var(--log_text);
+    background-color: var(--nav);
+
+}
+
+
+.active_link{
+    border-bottom: solid 2px var(--log_text);
+    
+}
+
+/* ============================================ */
+
+/* at small screens */
+.container-fluid{
+    background-color: var(--Nav);
+}
+
+.fa-solid {
+    color: var(--log_text);
+
+}
+
+.offcanvas-body ul li a{
+    color: var(--log_text);
+    text-decoration: none;
+
+}
+.offcanvas-body ul li {
+    color: var(--log_text);
+    list-style: none;
+}
