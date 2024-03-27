@@ -18,7 +18,7 @@ class Database
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ];
-            $this->conn = new PDO($dns, 'username', 'password', $options);
+            $this->conn = new PDO($dns, 'root', '', $options);
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -78,3 +78,5 @@ class Database
         return $this->conn->lastInsertId();
     }
 }
+
+$obj = new Database();
