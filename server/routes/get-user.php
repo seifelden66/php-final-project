@@ -2,7 +2,7 @@
 <?php
 
 require('../database/database.php');
-require('../controllers/UserController.php');
+require('../controllers/userController.php');
 
 
 
