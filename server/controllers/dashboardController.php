@@ -8,9 +8,9 @@ class JobDashboardController
     {
         $this->db = $database;
     }
-
     public function index()
     {
+
         $this->db->query("SELECT * FROM jobs");
         $jobs = $this->db->selectAll();
         return json_encode($jobs);
