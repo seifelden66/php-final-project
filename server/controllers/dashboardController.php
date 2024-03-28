@@ -3,18 +3,30 @@
 class JobDashboardController
 {
     private $db;
+    private $session;
+
 
     public function __construct(Database $database)
     {
         $this->db = $database;
+
     }
     public function index()
-    {
-
-        $this->db->query("SELECT * FROM jobs");
-        $jobs = $this->db->selectAll();
-        return json_encode($jobs);
+{
+    // Check if organization is logged in
+    if (!$this->session->isLoggedIn() || $this->session->getUserType() !== 'organization') {
+        return json_encode(['error' => 'Unauthorized']);
     }
+
+    // Retrieve organization ID from session
+    $organizationId = $_SESSION['token']; // Assuming the organization ID is stored in the session token
+    $this->db->query("SELECT * FROM jobs WHERE organization_id = ?");
+    $this->db->bind(1, $organizationId);
+    $jobs = $this->db->selectAll();
+
+    return json_encode($jobs);
+}
+
 
     public function create()
     {
