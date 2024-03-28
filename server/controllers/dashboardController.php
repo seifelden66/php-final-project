@@ -52,15 +52,11 @@ class JobDashboardController
 
 
 
-
-
-
-
-
     // *NOTE - user insert function 
     public function insert(ValidateUserData $data)
     {
 
+        // return json_encode($data->checkData());
         // *NOTE -  validate data using helper method checkdata 
         if (isset($data->checkData()['error'])) {
             http_response_code(400);   // bad request , user insert faild data
@@ -85,7 +81,6 @@ class JobDashboardController
             }
         }
 
-
         // get array keys as a string 
         $rows = implode(',', array_keys($userData));
 
@@ -108,52 +103,6 @@ class JobDashboardController
             'success' => 'success insert',
         ]);
     }
-
-    // *NOTE - login for user and orgnization
-    public function login(ValidateUserData $data)
-    {
-        // use helper method to validate user data 
-        $chekPassword = $data->validatePassword($data->userData['password']);
-        $checkEmail = $data->validateEmail($data->userData['email']);
-        if (count($data->failedData) > 0) {
-            http_response_code(400);
-            return json_encode($data->failedData);
-        }
-        // NOTE Check if (the user) is login as a user or as an organization, to see which table we will hit
-        $email = $data->userData['email'];
-        $password = $data->userData['password'];
-
-        if ($data->userData['loginas'] == "user") {
-            $this->db->query("SELECT id, password from applicants WHERE email = '$email'");
-            $user = $this->db->select();
-
-
-            if ($user && password_verify($password, $user['password'])) {
-                // create session for user 
-                session_start();
-                $token = uniqid();
-                $_SESSION[$token] = $user['id'];
-                return json_encode(['token' => $token]);
-            } else {
-                // Invalid email or password
-                return json_encode([
-                    'error' => 'Invalid email or password',
-                ]);
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 

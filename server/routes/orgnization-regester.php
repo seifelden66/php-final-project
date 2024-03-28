@@ -1,6 +1,5 @@
 <?php
 
-// echo 'kdalkfkl';
 require('../database/database.php');
 require('../controllers/dashboardController.php');
 require('../helper/validateUserData.php');
