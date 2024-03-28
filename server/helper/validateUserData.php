@@ -56,7 +56,7 @@ class ValidateUserData
             return $this->failedData['profile_picture'] = "Please choose correct file";
         }
         $new_name = uniqid();
-        move_uploaded_file($_FILES['profile_picture']['tmp_name'], '/var/www/html/php/php_project/public/images/' . $new_name);
+        move_uploaded_file($_FILES['profile_picture']['tmp_name'], '/var/www/html/php/php-final-project/server/public/images/' . $new_name);
         $this->userData['profile_picture'] = $new_name;
     }
 
