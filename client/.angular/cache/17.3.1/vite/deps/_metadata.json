@@ -1,31 +1,31 @@
 {
-  "hash": "140ef6a9",
-  "configHash": "1b9cde54",
+  "hash": "7b12430b",
+  "configHash": "03dd6d55",
   "lockfileHash": "73b16281",
-  "browserHash": "01d042c5",
+  "browserHash": "d8df77cd",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "e4b459d8",
+      "fileHash": "10205ef1",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "6f7a41d0",
+      "fileHash": "4a7e68d2",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "701d7922",
+      "fileHash": "53817ac5",
       "needsInterop": false
     },
     "@fortawesome/angular-fontawesome": {
       "src": "../../../../../node_modules/@fortawesome/angular-fontawesome/fesm2022/angular-fontawesome.mjs",
       "file": "@fortawesome_angular-fontawesome.js",
-      "fileHash": "31af27b0",
+      "fileHash": "8c89ed95",
       "needsInterop": false
     }
   },
