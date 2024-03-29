@@ -82,6 +82,7 @@ class UserController
     // *NOTE - login for user and orgnization
     public function login(ValidateUserData $data)
     {
+        // return json_encode($data->userData);
         // use helper method to validate user data 
         $chekPassword = $data->validatePassword($data->userData['password']);
         $checkEmail = $data->validateEmail($data->userData['email']);
@@ -111,6 +112,26 @@ class UserController
                 ]);
             }
         }
+
+        if ($data->userData['loginas'] == "organization") {
+            $this->db->query("SELECT id, password FROM organizations WHERE email = '$email'");
+            $organization = $this->db->select();
+
+
+            if ($organization && password_verify($password, $organization['password'])) {
+                // create session for user 
+                session_start();
+                $token = uniqid();
+                $_SESSION[$token] = $organization['id'];
+                return json_encode(['token' => $token, 'user_type' => 'organization']);
+            } else {
+                // Invalid email or password
+                return json_encode([
+                    'error' => 'Invalid email or password',
+                ]);
+            }
+        }
+
     }
     //NOTE - user profile 
     public function profile($token)
