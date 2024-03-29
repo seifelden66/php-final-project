@@ -11,6 +11,7 @@ class DashboardController
         $this->db = $database;
     }
 
+    
     // NOTE - get all job related to organization
     public function index($token)
     {
@@ -87,4 +88,7 @@ class DashboardController
         $_SESSION[$token] = $this->db->last_id();
         return json_encode(['token' => $token]);
     }
+
+
+    
 }
