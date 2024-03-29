@@ -8,6 +8,8 @@ class JobDashboardController
     {
         $this->db = $database;
     }
+
+    
     public function index()
     {
 
@@ -37,6 +39,50 @@ class JobDashboardController
 
         return json_encode(['message' => "Job with ID $id deleted successfully"]);
     }
+
+
+    public function insert(ValidateUserData $data)
+    {
+
+        // *NOTE -  validate data using helper method checkdata 
+        if (isset($data->checkData()['error'])) {
+            http_response_code(400);   // bad request , user insert faild data
+            return $data->checkData();  // return faild messages to user
+        }
+
+        // encrypt password
+        $userData = $data->checkData();
+        $newPassword = password_hash($userData['password'], PASSWORD_DEFAULT);
+        $userData['password'] = $newPassword;
+
+        // NOTE - check if email is already exist
+        if (array_key_exists('email', $userData)) {
+            $email = $userData['email'];
+            $this->db->query("SELECT id FROM applicants WHERE email = '$email'");
+            $this->db->select();
+            if ($this->db->count() > 0) {
+                http_response_code(400); // bad request , user insert faild data
+                return json_encode([
+                    'email' => 'email is alredy exists',
+                ]);
+            }
+        }
+
+        
+
+
+        // get array keys as a string 
+        $rows = implode(',', array_keys($userData));
+
+        $values = '';
+        foreach ($userData as $value) {
+            $values .= '?,';
+        }
+        $values = rtrim($values, ',');
+
+        $this->db->query("INSERT INTO applicants ($rows) VALUES ($values) ");
+    }
+
 }
 
 ?>
