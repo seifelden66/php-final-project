@@ -25,16 +25,7 @@
 
       </ul>
       <div class="Btns d-flex gap-5">
-<!-- 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sign In
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item"  (click)="redirection3()"href="#">Orgnization</a></li>
-            <li><a class="dropdown-item"  (click)="redirection2()"href="#">User</a></li>
-          </ul>
-        </div> -->
+
         <button type="button" (click)="redirection()" class="btn btn-light">LogIN</button>
         <button type="button" (click)="redirection2()" class="btn btn-light">User</button>
         <button type="button" (click)="redirection3()" class="btn btn-light">Orgnization</button>
@@ -75,16 +66,14 @@
       </li>
 
     </ul>
+    
     <div class="Btns d-flex gap-5">
 
-      <ul class="dropdown-menu">
-        <li (click)="redirection3()"><a class="dropdown-item"   href="#">Orgnization</a></li>
-        <li (click)="redirection2()"><a class="dropdown-item"   href="#">User</a></li>  
-      </ul>
- 
-      <button type="button"  (click)="redirection()" class="btn btn-light">LogIN</button>
+      <button type="button" (click)="redirection()" class="btn btn-light">LogIN</button>
+      <button type="button" (click)="redirection2()" class="btn btn-light">User</button>
+      <button type="button" (click)="redirection3()" class="btn btn-light">Orgnization</button>
 
-  </div>
+    </div>
 </div>
 </div>
 
