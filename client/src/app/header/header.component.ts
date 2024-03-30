@@ -12,6 +12,17 @@ export class HeaderComponent {
 
   constructor (private router:Router){}
 
+  redirection(){
+    this.router.navigate([`login`])
+  }
+  
+  redirection2(){
+    this.router.navigate([`signup`])
+  }
+  
+  redirection3(){
+    this.router.navigate([`orgnization`])
+  }
   
 
 
