@@ -12,20 +12,37 @@ class JobDashboardController
     }
 
 
+    // public function index()
+    // {
+    //     // Check if organization is logged in
+    //     if (!$this->session->isLoggedIn() || $this->session->getUserType() !== 'organization') {
+    //         return json_encode(['error' => 'Unauthorized']);
+    //     }
+
+    //     // Retrieve organization ID from session
+    //     $organizationId = $_SESSION['token']; // Assuming the organization ID is stored in the session token
+    // $this->db->query("SELECT * FROM jobs WHERE organization_id = ?");
+    // $this->db->bind(1, $organizationId);
+    // $jobs = $this->db->selectAll();
+
+    // return json_encode($jobs);
+    // }
     public function index()
     {
-        // Check if organization is logged in
-        if (!$this->session->isLoggedIn() || $this->session->getUserType() !== 'organization') {
-            return json_encode(['error' => 'Unauthorized']);
+        $headers = getallheaders();
+        if (isset($headers['Authorization'])) {
+            $authorizationHeader = $headers['Authorization'];
+            // $token = explode(' ', $authorizationHeader)[1]; // Assuming format is "Bearer {token}"
+            // return $token;
+            $organizationId = $_SESSION['token'];
+            $this->db->query("SELECT * FROM jobs WHERE organization_id = ?");
+            $this->db->bind(1, $organizationId);
+            $jobs = $this->db->selectAll();
+
+            return json_encode($jobs);
+        } else {
+            return null;
         }
-
-        // Retrieve organization ID from session
-        $organizationId = $_SESSION['token']; // Assuming the organization ID is stored in the session token
-        $this->db->query("SELECT * FROM jobs WHERE organization_id = ?");
-        $this->db->bind(1, $organizationId);
-        $jobs = $this->db->selectAll();
-
-        return json_encode($jobs);
     }
 
 
