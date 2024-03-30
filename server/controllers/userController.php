@@ -9,14 +9,6 @@ class UserController
         $this->db = $database;
     }
 
-    // *NOTE - get user data function 
-    public function getUser($id)
-    {
-        $this->db->query("SELECT * FROM applicants WHERE id = $id");
-        $user = $this->db->select();
-        unset($user['password']);
-        return json_encode($user);
-    }
 
     // *NOTE - get all users data function 
     public function getAllUsers()
@@ -33,7 +25,7 @@ class UserController
         // *NOTE -  validate data using helper method checkdata 
         if (isset($data->checkData()['error'])) {
             http_response_code(400);   // bad request , user insert faild data
-            return $data->checkData();  // return faild messages to user
+            return json_encode($data->checkData());  // return faild messages to user
         }
 
         // encrypt password
@@ -73,9 +65,11 @@ class UserController
         }
 
         $this->db->execute();
-        return json_encode([
-            'success' => 'success insert',
-        ]);
+
+        session_start();
+        $token = uniqid();
+        $_SESSION[$token] = $this->db->last_id();
+        return json_encode(['token' => $token]);
     }
 
     // *NOTE - login for user and orgnization
@@ -130,7 +124,6 @@ class UserController
                 ]);
             }
         }
-
     }
     //NOTE - user profile 
     public function profile($token)

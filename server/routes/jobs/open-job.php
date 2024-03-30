@@ -1,4 +1,3 @@
-
 <?php
 
 require('../../database/database.php');
@@ -10,4 +9,4 @@ header("content-type: application/json");
 $obj = new JobController(new Database);
 
 
-echo $obj->allJob();
+echo $obj->open($_GET['id']);

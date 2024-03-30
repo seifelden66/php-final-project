@@ -1,7 +1,7 @@
 <?php
 
-require('../database/database.php');
-require('../controllers/applicationController.php');
+require('../../database/database.php');
+require('../../controllers/applicationController.php');
 
 header("content-type: application/json");
 
