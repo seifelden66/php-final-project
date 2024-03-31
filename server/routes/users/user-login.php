@@ -4,7 +4,10 @@ require('../../database/database.php');
 require('../../controllers/userController.php');
 require('../../helper/validateUserData.php');
 
-header("content-type: application/json");  // tell the client the response will be json data
+header("content-type: application/json");     // tell the client the response will be json data
+header('Access-Control-Allow-Origin: *');
+
+
 
 $obj = new UserController(new Database);
 
