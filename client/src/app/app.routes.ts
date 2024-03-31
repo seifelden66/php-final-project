@@ -22,9 +22,6 @@ export const routes: Routes = [
     component:SingleJobsComponent,
     title:"singlejobs-page"
 },
-
-
-
 {
     path: "login",
     component:LogInComponent,

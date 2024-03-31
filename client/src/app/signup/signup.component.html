@@ -1,1 +1,292 @@
-<p>signup works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      [formGroup]="userregesterform"
+      (ngSubmit)="handelSubmitform()"
+
+      class="row mt-4 mb-4"
+    >
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">username</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          name="username"
+          id="username"
+          [(ngModel)]="username"
+        />
+
+        @if (userregesterform.controls['username'].touched &&
+        userregesterform.controls['username'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['username'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+
+          @if (userregesterform.controls['username'].errors?.['minLength'])
+          {
+
+              <h1>The min characters is 3</h1>
+          
+        }
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          name="email"
+          id="username"
+          [(ngModel)]="email"
+
+        />
+
+        @if (userregesterform.controls['email'].touched &&
+        userregesterform.controls['email'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['email'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+          @if (userregesterform.controls['email'].errors?.['email'])
+          {
+
+              <small>This email is invalid</small>
+          
+        }
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          name="password"
+          id="username"
+          [(ngModel)]="password"
+          />
+
+        @if (userregesterform.controls['password'].touched &&
+        userregesterform.controls['password'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['password'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">name </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          name="name	"
+          id="username"
+          [(ngModel)]="name"
+
+        />
+
+        @if (userregesterform.controls['name'].touched &&
+        userregesterform.controls['name'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['name'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+          @if (userregesterform.controls['name'].errors?.['minLength'])
+          {
+
+              <h1>The min characters is 3</h1>
+          
+        }
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">country</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="country"
+          name="country"
+          id="username"
+          [(ngModel)]="country"
+
+        />
+
+        @if (userregesterform.controls['country'].touched &&
+        userregesterform.controls['country'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['country'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">experience</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="experience"
+          name="experience"
+          id="username"
+          [(ngModel)]="experience"
+
+        />
+
+        @if (userregesterform.controls['experience'].touched &&
+        userregesterform.controls['experience'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['experience'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+        </div>
+
+        }
+
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">education</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="education"
+          name="education"
+          id="username"
+          [(ngModel)]="education"
+
+        />
+
+        @if (userregesterform.controls['education'].touched &&
+        userregesterform.controls['education'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['education'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">certifications</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="certifications"
+          name="certifications"
+          id="username"
+          [(ngModel)]="certifications"
+
+        />
+
+        @if (userregesterform.controls['certifications'].touched &&
+        userregesterform.controls['certifications'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['certifications'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+
+        </div>
+
+        }
+      </div>
+
+      <div class="col-md-6 input col-xxl-12 col-xl-12">
+        <label for="inputEmail4" class="form-label">profile_picture</label>
+        <input
+          type="file"
+          class="form-control"
+          formControlName="profile_picture"
+          name="profile_picture"
+          id="username"
+          [(ngModel)]="profile_picture"
+
+        />
+
+        @if (userregesterform.controls['profile_picture'].touched &&
+        userregesterform.controls['profile_picture'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['profile_picture'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+
+        </div>
+
+        }
+      </div>
+
+      <div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-4 mb-4">
+        <textarea
+          class="form-control"
+          formControlName="bio"
+          placeholder="Bio"
+          name="bio"
+          id="floatingTextarea"
+          [(ngModel)]="bio"
+
+        ></textarea>
+
+        @if (userregesterform.controls['bio'].touched &&
+        userregesterform.controls['bio'].invalid) {
+
+        <div class="alert alert-danger" role="alert">
+          @if (userregesterform.controls['bio'].errors?.['required']) {
+          <small>This filed is required</small>
+          
+          } 
+        </div>
+        }
+      </div>
+
+      <div class="col-12 mt-4 register w-100 d-flex">
+        <button type="submit" [disabled]="userregesterform.invalid" class="btn btn-primary mx-auto w-25 p-3">
+          register
+        </button>
+      </div>
+    </form>
+  </body>
+</html>

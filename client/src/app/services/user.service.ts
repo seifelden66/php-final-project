@@ -8,11 +8,9 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  insert(){
-
-    
-    
-
+  url = "http://localhost/php-final-project/server/routes/users/insert-user.php"
+  insert(inputuser :any){
+    return this.http.post(this.url,inputuser);
   }
 
 
