@@ -1,7 +1,6 @@
 import {
   DomSanitizer
-} from "./chunk-5SUFD5YD.js";
-import "./chunk-7WP4JF6Q.js";
+} from "./chunk-UEBAAGOC.js";
 import {
   Component,
   Directive,
@@ -29,7 +28,7 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵsanitizeHtml
-} from "./chunk-NGLUOGFD.js";
+} from "./chunk-KJBDP7EP.js";
 
 // node_modules/@fortawesome/fontawesome-svg-core/index.mjs
 function ownKeys(object, enumerableOnly) {
