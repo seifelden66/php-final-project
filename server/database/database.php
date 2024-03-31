@@ -77,4 +77,22 @@ class Database
     {
         return $this->conn->lastInsertId();
     }
+
+    public function setTokenNumber($token, $expire_date, $id)
+    {
+        $this->query("INSERT INTO TokenNumbers (tokenNumber, expire_date, session_id) VALUES (?,?,?)");
+        $this->bind(1, $token);
+        $this->bind(2, $expire_date);
+        $this->bind(3, $id);
+        $this->execute();
+    }
+    public function getTokenNumber($token)
+    {
+        $this->query("SELECT id, session_id FROM TokenNumbers WHERE tokenNumber  = '$token'");
+        $status = $this->select();
+        if (!$status) {
+            return false;
+        }
+        return $status['session_id'];
+    }
 }

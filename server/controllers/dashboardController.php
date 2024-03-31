@@ -16,13 +16,12 @@ class DashboardController
     public function index($token)
     {
         // Check if organization is logged in
-        session_start();
-        // return json_encode($_SESSION);
-        if (!isset($_SESSION[$token])) {
+        if (!$this->db->getTokenNumber($token)) {
             http_response_code(400);
-            return json_encode(['message' => 'something is wrong']);
+            return json_encode(['message' => 'somthing wrong']);
         }
-        $id = $_SESSION[$token];
+        $id = $this->db->getTokenNumber($token);
+
         // this query to return all Jobs specific to the organization and the number of applicants for each job
         $this->db->query("SELECT jobs.*, COUNT(app.job_id) as count FROM jobs LEFT JOIN applications app on jobs.id = app.job_id WHERE organization_id = $id GROUP BY jobs.id");
         $jobs = $this->db->selectAll();
@@ -83,9 +82,10 @@ class DashboardController
         }
 
         $this->db->execute();
-        session_start();
-        $token = uniqid();
-        $_SESSION[$token] = $this->db->last_id();
+        $lastId = $this->db->last_id();
+
+        $token = uniqid() . time();
+        $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $lastId);
         return json_encode(['token' => $token]);
     }
 
