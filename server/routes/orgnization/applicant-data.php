@@ -5,6 +5,6 @@ require('../../controllers/dashboardController.php');
 
 header("Content-Type: application/json");
 
-$obj = new JobDashboardController(new Database);
+$obj = new DashboardController(new Database);
 
-echo $obj->index();
+echo $obj->usersWhoApplyOnApplication($_GET['job_id']);

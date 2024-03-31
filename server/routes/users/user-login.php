@@ -1,10 +1,10 @@
 <?php
 
+require('../../database/database.php');
+require('../../controllers/userController.php');
+require('../../helper/validateUserData.php');
 
-require('../database/database.php');
-require('../controllers/userController.php');
-require('../helper/validateUserData.php');
-header("Content-Type: application/json");
+header("content-type: application/json");  // tell the client the response will be json data
 
 $obj = new UserController(new Database);
 

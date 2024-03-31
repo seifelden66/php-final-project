@@ -1,6 +1,6 @@
 <?php
 
-class JobDashboardController
+class DashboardController
 {
     private $db;
     private $session;
@@ -11,57 +11,40 @@ class JobDashboardController
         $this->db = $database;
     }
 
-
-    public function index()
+    
+    // NOTE - get all job related to organization
+    public function index($token)
     {
         // Check if organization is logged in
-        if (!$this->session->isLoggedIn() || $this->session->getUserType() !== 'organization') {
-            return json_encode(['error' => 'Unauthorized']);
+        session_start();
+        // return json_encode($_SESSION);
+        if (!isset($_SESSION[$token])) {
+            http_response_code(400);
+            return json_encode(['message' => 'something is wrong']);
         }
-
-        // Retrieve organization ID from session
-        $organizationId = $_SESSION['token']; // Assuming the organization ID is stored in the session token
-        $this->db->query("SELECT * FROM jobs WHERE organization_id = ?");
-        $this->db->bind(1, $organizationId);
+        $id = $_SESSION[$token];
+        // this query to return all Jobs specific to the organization and the number of applicants for each job
+        $this->db->query("SELECT jobs.*, COUNT(app.job_id) as count FROM jobs LEFT JOIN applications app on jobs.id = app.job_id WHERE organization_id = $id GROUP BY jobs.id");
         $jobs = $this->db->selectAll();
-
         return json_encode($jobs);
     }
 
-
-    public function create()
+    //NOTE - get all users whos applay on application
+    public function usersWhoApplyOnApplication($job_id)
     {
-        $jobData = $_POST;
-        $this->db->query("INSERT INTO jobs (title, description, salary) VALUES (?, ?, ?)");
-        $this->db->bind(1, $jobData['title']);
-        $this->db->bind(2, $jobData['description']);
-        $this->db->bind(3, $jobData['salary']);
-        $this->db->execute();
-
-        return json_encode(['message' => 'Job created successfully']);
+        $this->db->query("SELECT app.id, applicant_id, job_id, cv_url,status, user.id, name, email, country, experience, education, education  FROM applications app JOIN applicants user
+        ON app.applicant_id = user.id WHERE job_id = $job_id");
+        $applicant = $this->db->selectAll();
+        return json_encode($applicant);
     }
-
-
-    public function delete($id)
-    {
-        $this->db->query("DELETE FROM jobs WHERE id = ?");
-        $this->db->bind(1, $id);
-        $this->db->execute();
-
-        return json_encode(['message' => "Job with ID $id deleted successfully"]);
-    }
-
-
 
     // *NOTE - user insert function 
     public function insert(ValidateUserData $data)
     {
-
-        // return json_encode($data->checkData());
         // *NOTE -  validate data using helper method checkdata 
         if (isset($data->checkData()['error'])) {
             http_response_code(400);   // bad request , user insert faild data
-            return $data->checkData();  // return faild messages to user
+            return json_encode($data->checkData());  // return faild messages to user
         }
 
         // encrypt password
@@ -100,8 +83,12 @@ class JobDashboardController
         }
 
         $this->db->execute();
-        return json_encode([
-            'success' => 'success insert',
-        ]);
+        session_start();
+        $token = uniqid();
+        $_SESSION[$token] = $this->db->last_id();
+        return json_encode(['token' => $token]);
     }
+
+
+    
 }
