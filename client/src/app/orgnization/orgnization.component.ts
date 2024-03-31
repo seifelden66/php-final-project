@@ -27,20 +27,14 @@ export class OrgnizationComponent {
      // const PASSWORD_PATTERN = '/^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/';
  
      
-     name : new FormControl ("", [Validators.required , Validators.minLength(3)] ),
+     orgName : new FormControl ("", [Validators.required , Validators.minLength(3)] ),
  
      
-     country : new FormControl ("", [Validators.required ] ),
+     contactPerson : new FormControl ("", [Validators.required ] ),
  
      
-     experience : new FormControl ("", [Validators.required] ),
- 
-     
-     education : new FormControl ("", [Validators.required ] ),
- 
-     
-     certifications : new FormControl ("", [Validators.required ] ),
- 
+     country : new FormControl ("", [Validators.required] ),
+  
      bio : new FormControl ("", [Validators.required ] ),
  
      profile_picture : new FormControl ("", [Validators.required ] )

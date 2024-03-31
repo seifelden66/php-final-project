@@ -86,29 +86,53 @@ class="row mt-4 mb-4"
 </div>
 
 <div class="col-md-6 input col-xxl-12 col-xl-12">
-  <label for="inputEmail4" class="form-label">name </label>
+  <label for="inputEmail4" class="form-label">orgnization Name </label>
   <input
     type="text"
     class="form-control"
-    formControlName="name"
-    name="name	"
+    formControlName="orgName"
+    name="orgName	"
     id="username"
   />
 
-  @if (orgnizationregisterform.controls['name'].touched &&
-  orgnizationregisterform.controls['name'].invalid) {
+  @if (orgnizationregisterform.controls['orgName'].touched &&
+  orgnizationregisterform.controls['orgName'].invalid) {
 
   <div class="alert alert-danger" role="alert">
-    @if (orgnizationregisterform.controls['name'].errors?.['required']) {
+    @if (orgnizationregisterform.controls['orgName'].errors?.['required']) {
     <small>This filed is required</small>
     
     } 
-    @if (orgnizationregisterform.controls['name'].errors?.['minLength'])
+    @if (orgnizationregisterform.controls['orgName'].errors?.['minLength'])
     {
 
         <h1>The min characters is 3</h1>
     
   }
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">contactPerson</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="contactPerson"
+    name="contactPerson"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['contactPerson'].touched &&
+  orgnizationregisterform.controls['contactPerson'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['contactPerson'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+
   </div>
 
   }
@@ -132,83 +156,12 @@ class="row mt-4 mb-4"
     <small>This filed is required</small>
     
     } 
-
-  </div>
-
-  }
-</div>
-
-<div class="col-md-6 input col-xxl-12 col-xl-12">
-  <label for="inputEmail4" class="form-label">experience</label>
-  <input
-    type="text"
-    class="form-control"
-    formControlName="experience"
-    name="experience"
-    id="username"
-  />
-
-  @if (orgnizationregisterform.controls['experience'].touched &&
-  orgnizationregisterform.controls['experience'].invalid) {
-
-  <div class="alert alert-danger" role="alert">
-    @if (orgnizationregisterform.controls['experience'].errors?.['required']) {
-    <small>This filed is required</small>
-    
-    } 
   </div>
 
   }
 
 </div>
 
-<div class="col-md-6 input col-xxl-12 col-xl-12">
-  <label for="inputEmail4" class="form-label">education</label>
-  <input
-    type="text"
-    class="form-control"
-    formControlName="education"
-    name="education"
-    id="username"
-  />
-
-  @if (orgnizationregisterform.controls['education'].touched &&
-  orgnizationregisterform.controls['education'].invalid) {
-
-  <div class="alert alert-danger" role="alert">
-    @if (orgnizationregisterform.controls['education'].errors?.['required']) {
-    <small>This filed is required</small>
-    
-    } 
-
-  </div>
-
-  }
-</div>
-
-<div class="col-md-6 input col-xxl-12 col-xl-12">
-  <label for="inputEmail4" class="form-label">certifications</label>
-  <input
-    type="text"
-    class="form-control"
-    formControlName="certifications"
-    name="certifications"
-    id="username"
-  />
-
-  @if (orgnizationregisterform.controls['certifications'].touched &&
-  orgnizationregisterform.controls['certifications'].invalid) {
-
-  <div class="alert alert-danger" role="alert">
-    @if (orgnizationregisterform.controls['certifications'].errors?.['required']) {
-    <small>This filed is required</small>
-    
-    } 
-
-  </div>
-
-  }
-</div>
 
 <div class="col-md-6 input col-xxl-12 col-xl-12">
   <label for="inputEmail4" class="form-label">profile_picture</label>
@@ -238,11 +191,10 @@ class="row mt-4 mb-4"
   <textarea
     class="form-control"
     formControlName="bio"
-    placeholder="Leave a comment here"
+    placeholder="Bio"
     name="bio"
     id="floatingTextarea"
   ></textarea>
-  <label for="floatingTextarea">Bio</label>
 
   @if (orgnizationregisterform.controls['bio'].touched &&
   orgnizationregisterform.controls['bio'].invalid) {
