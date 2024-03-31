@@ -10,13 +10,14 @@ class ApplicationController
     // NOTE - function user applay on job
     function applay($data)
     {
-        // get token number for user to get id for him and story 
-        session_start();
-        if (isset($_SESSION[$data['tokenNumber']])) {
-            $id = $_SESSION[$data['tokenNumber']];
-        } else {
-            return json_encode(['message' => 'somthing is wrong']);
+        // get token number for user to get id for him
+        if (!$this->db->getTokenNumber($data['tokenNumber'])) {
+            http_response_code(400);
+            return json_encode(['message' => 'somthing wrong']);
         }
+        $id = $this->db->getTokenNumber($data['tokenNumber']);
+
+
         $job_id = $data['job_id'];
         // cheack if user already applay for this job if he alreayd applay return 
         $this->db->query("SELECT id from applications WHERE job_id = $job_id AND applicant_id = $id");

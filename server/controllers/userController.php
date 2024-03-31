@@ -65,10 +65,10 @@ class UserController
         }
 
         $this->db->execute();
+        $lastId = $this->db->last_id();
 
-        session_start();
-        $token = uniqid();
-        $_SESSION[$token] = $this->db->last_id();
+        $token = uniqid() . time();
+        $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $lastId);
         return json_encode(['token' => $token]);
     }
 
@@ -94,12 +94,13 @@ class UserController
 
             if ($user && password_verify($password, $user['password'])) {
                 // create session for user 
-                session_start();
-                $token = uniqid();
-                $_SESSION[$token] = $user['id'];
+
+                $token = uniqid() . time();
+                $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $user['id']);
                 return json_encode(['token' => $token]);
             } else {
                 // Invalid email or password
+                http_response_code(400);
                 return json_encode([
                     'error' => 'Invalid email or password',
                 ]);
@@ -113,12 +114,12 @@ class UserController
 
             if ($organization && password_verify($password, $organization['password'])) {
                 // create session for user 
-                session_start();
-                $token = uniqid();
-                $_SESSION[$token] = $organization['id'];
-                return json_encode(['token' => $token, 'user_type' => 'organization']);
+                $token = uniqid() . time();
+                $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $organization['id']);
+                return json_encode(['token' => $token]);
             } else {
                 // Invalid email or password
+                http_response_code(400);
                 return json_encode([
                     'error' => 'Invalid email or password',
                 ]);
@@ -128,15 +129,14 @@ class UserController
     //NOTE - user profile 
     public function profile($token)
     {
-        session_start();
-        if (isset($_SESSION[$token])) {
-            $id = $_SESSION[$token];
-            $this->db->query("SELECT * FROM applicants WHERE id = $id");
-            $user = $this->db->select();
-            unset($user['password']);
-            return json_encode($user);
-        } else {
+        if (!$this->db->getTokenNumber($token)) {
+            http_response_code(400);
             return json_encode(['message' => 'somthing wrong']);
         }
+        $id = $this->db->getTokenNumber($token);
+        $this->db->query("SELECT * FROM applicants WHERE id = $id");
+        $user = $this->db->select();
+        unset($user['password']);
+        return json_encode($user);
     }
 }
