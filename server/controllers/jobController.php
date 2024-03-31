@@ -26,13 +26,14 @@ class JobController
     // NOTE - function create job 
     public function create($data)
     {
-        session_start();
-        if (!isset($_SESSION[$data['token']])) {
+        if (!$this->db->getTokenNumber($data['token'])) {
             http_response_code(400);
-            return json_encode(['message' => 'something is wrong']);
+            return json_encode(['message' => 'somthing wrong']);
         }
-        $data['organization_id'] = $_SESSION[$data['token']];
+        $id = $this->db->getTokenNumber($data['token']);
+        $data['organization_id'] = $id;
         unset($data['token']);
+
         $data['created_at'] = date('Y-m-d');
         $data['updated_at'] = date('Y-m-d');
 
