@@ -15,10 +15,11 @@
 
 }
 :root{
-    --page: #F0F0F0;
+    --page: aliceblue;
     --footer: #213655;
     --Nav : #4F709D;
     --log_text : #E5D283 ;
+    --border :  5.5px solid rgb(236, 231, 231);
 }
 
 body{

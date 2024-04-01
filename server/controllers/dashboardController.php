@@ -10,6 +10,7 @@ class DashboardController
         $this->db = $database;
     }
 
+    
     // NOTE - get all job related to organization
     public function index($token)
     {
@@ -86,4 +87,7 @@ class DashboardController
         $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $lastId);
         return json_encode(['token' => $token]);
     }
+
+
+    
 }

@@ -60,6 +60,7 @@ class UserController
 
 
         $i = 1;
+
         foreach ($userData as $value) {
             $this->db->bind($i++, $value);
         }
@@ -79,7 +80,7 @@ class UserController
         // use helper method to validate user data 
         $chekPassword = $data->validatePassword($data->userData['password']);
         $checkEmail = $data->validateEmail($data->userData['email']);
-        if (count($data->failedData) > 0) {
+        if (count($data->failedData) > 0){
             http_response_code(400);
             return json_encode($data->failedData);
         }
