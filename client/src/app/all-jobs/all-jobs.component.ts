@@ -14,7 +14,7 @@ export class AllJobsComponent {
   jobs: any;
   ngOnInit() {
     const url =
-      'http://localhost/php/php-final-project/server/routes/jobs/all-jobs.php';
+      'http://localhost/php-final-project/server/routes/jobs/all-jobs.php';
     return this.http.get(url).subscribe((res) => (this.jobs = res));
   }
   // constructor (private router : Router){}

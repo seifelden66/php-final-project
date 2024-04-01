@@ -6,6 +6,7 @@ import { AllJobsComponent } from './all-jobs/all-jobs.component';
 import { SingleJobsComponent } from './single-jobs/single-jobs.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { UsersApplayOnJobComponent } from './users-applay-on-job/users-applay-on-job.component';
 
 export const routes: Routes = [
   {
@@ -43,5 +44,10 @@ export const routes: Routes = [
     path: 'add-job',
     component: AddJobsComponent,
     title: 'addJob-page',
+  },
+  {
+    path: 'users-applay-on-job/:id',
+    component: UsersApplayOnJobComponent,
+    title: 'users applayd',
   },
 ];

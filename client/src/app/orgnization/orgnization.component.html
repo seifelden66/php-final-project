@@ -1,12 +1,37 @@
-<div class="cards">
+<div class="row">
+  <div class="col-lg-12 my-4">
+    @for (item of posts; track item.$id) {
+    <div class="card my-4 px-4 py-2">
+      <h2 class="text text-center">Title : {{ item.title }}</h2>
+      <p>Job Description : {{ item.description }}</p>
+      <p>Job Type : {{ item.job_type }}</p>
+      <p>Applay On This Job : {{ item.count }} Applicant</p>
+      <p>Status For Job: {{ item.is_open == 1 ? "open" : "close" }}</p>
+      <div class="d-flex gap-4">
+        <button (click)="disaple(item.id)" class="btn btn-primary">
+          Didable
+        </button>
+        <button (click)="open(item.id)" class="btn btn-primary">Open</button>
+        <button
+          routerLink="/users-applay-on-job/{{ item.id }}"
+          class="btn btn-primary"
+        >
+          Applicants Applay on job
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<!-- <div class="cards">
   @for (item of posts; track item.id) {
   <div class="card">
     <h1>{{ item.title }}</h1>
     <p>{{ item.description }}</p>
   </div>
   }
+</div> -->
+<div class="link">
+  <a routerLink="/add-job" class="btn btn-primary">add job</a>
 </div>
-<div class="link">    
-    <a routerLink="/add-job" class="btn btn-primary">add job</a>
-</div>
-    

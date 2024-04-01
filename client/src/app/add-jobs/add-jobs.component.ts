@@ -33,7 +33,7 @@ export class AddJobsComponent implements OnInit {
 
   handleForm() {
     const url =
-      'http://localhost/php/php-final-project/server/routes/jobs/create-job.php';
+      'http://localhost/php-final-project/server/routes/jobs/create-job.php';
     fetch(url, {
       method: 'POST',
       headers: {
