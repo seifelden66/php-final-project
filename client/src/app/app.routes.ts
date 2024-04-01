@@ -1,4 +1,3 @@
-import { OrgnizationComponent } from './orgnization/orgnization.component';
 import { SignupComponent } from './signup/signup.component';
 import { Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -6,6 +5,7 @@ import { AllJobsComponent } from './all-jobs/all-jobs.component';
 import { SingleJobsComponent } from './single-jobs/single-jobs.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { IndexComponent } from './index/index.component';
+import { OrgnizationregesterComponent } from './orgnizationregester/orgnizationregester.component';
 
 export const routes: Routes = [
 
@@ -42,7 +42,7 @@ export const routes: Routes = [
 },
 {
     path: "orgnization",
-    component:OrgnizationComponent,
+    component:OrgnizationregesterComponent,
     title:"orgnization-page"
 },
 

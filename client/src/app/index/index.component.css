@@ -165,13 +165,17 @@ body {
     background-repeat: no-repeat;
     position: relative;
     border-radius: 6px;
-    box-shadow: 1px 1px 5px #16171f;
+    /* box-shadow: 1px 1px 5px #16171f; */
   }
   .job-career-box:hover {
     cursor: pointer;
     opacity: 0.8;
     transform: scale(95%);
-  }
+    -webkit-transform: scale(95%);
+    -moz-transform: scale(95%);
+    -ms-transform: scale(95%);
+    -o-transform: scale(95%);
+}
   .job-career-box span {
     position: absolute;
     bottom: 1%;
@@ -181,22 +185,22 @@ body {
     font-size: 20px;
   }
   
-  /* .job-career-level .job-career-box:nth-child(1) {
-    background-image: url("images/image21.jpg");
+  .job-career-level .job-career-box:nth-child(1) {
+    background-image: url("../../assets/images/image21.jpg");
   }
   
   .job-career-level .job-career-box:nth-child(2) {
-    background-image: url("images/image22.jpg");
+    background-image: url("../../assets/images/image22.jpg");
   }
   
   .job-career-level .job-career-box:nth-child(3) {
-    background-image: url("images/image23.jpg");
+    background-image: url("../../assets/images/image23.jpg");
   }
   
   .job-career-level .job-career-box:nth-child(4) {
-    background-image: url("images/image24.jpg");
+    background-image: url("../../assets/images/image24.jpg");
   }
-   */
+  
   /* ///////////////////////////////////  */
   .job-by-category {
     background-color: #f5f5f5;
@@ -215,24 +219,28 @@ body {
     background-repeat: no-repeat;
     position: relative;
     border-radius: 6px;
-    box-shadow: 1px 1px 5px #16171f;
-  }
+    /* box-shadow: 1px 1px 5px #16171f; */
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
   
-  /* .job-by-category .job-career-box:nth-child(1) {
-    background-image: url("images/image29.jpg");
+  .job-by-category .job-career-box:nth-child(1) {
+    background-image: url("../../assets/images/image25.jpg");
   }
   
   .job-by-category .job-career-box:nth-child(2) {
-    background-image: url("images/image26.jpg");
+    background-image: url("../../assets/images/image26.jpg");
   }
   
   .job-by-category .job-career-box:nth-child(3) {
-    background-image: url("images/image27.jpg");
+    background-image: url("../../assets/images/image27.jpg");
   }
   
   .job-by-category .job-career-box:nth-child(4) {
-    background-image: url("images/image28.jpg");
-  } */
+    background-image: url("../../assets/images/image28.jpg");
+  }
   
   /* //////////////////////////////////////////////////////////////////////////////// */
   

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from './../services/user.service';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -29,7 +30,7 @@ export class SignupComponent {
   error : any = []
     
   UserService = inject(UserService)
-  constructor (private http : HttpClient){
+  constructor (private http : HttpClient,private router : Router){
     this.userregesterform = new FormGroup ({
  
 
@@ -87,7 +88,11 @@ export class SignupComponent {
         .then((res) => {
           // Assuming the response JSON contains a property named "token"
           if (res.token) {
-            localStorage.setItem('token', res.token);
+            localStorage.setItem('user-token', res.token);
+
+          this.router.navigate([`profile`]);
+
+
           } else {
             console.error('Token was not provided in the response');
           }

@@ -48,11 +48,26 @@ export class LogInComponent {
     .then((res) => {
       // Assuming the response JSON contains a property named "token"
       if (res.token) {
-        localStorage.setItem('token', res.token);
 
-        this.router.navigate([`alljobs`]);
-      } else {
-        console.error('Token was not provided in the response');
+        if(this.loginform.value.loginas == "user" ){
+          localStorage.setItem('user-token', res.token);
+  
+          this.router.navigate([`alljobs`]);
+          
+        }else if(this.loginform.value.loginas == "organization" ){
+
+          localStorage.setItem('org-token', res.token);
+          
+          // this.router.navigate([`index`]);
+          
+        }
+        
+
+        
+      } 
+      else {
+        // console.log(res.error);
+        alert(res.error)
       }
     })
 

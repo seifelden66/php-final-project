@@ -2,15 +2,17 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-orgnization',
+  selector: 'app-orgnizationregester',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './orgnization.component.html',
-  styleUrl: './orgnization.component.css'
+  templateUrl: './orgnizationregester.component.html',
+  styleUrl: './orgnizationregester.component.css'
 })
-export class OrgnizationComponent {
+export class OrgnizationregesterComponent {
+
 
   orgnizationregisterform : FormGroup;
+
   constructor(){
    this.orgnizationregisterform = new FormGroup ({
  
@@ -37,7 +39,6 @@ export class OrgnizationComponent {
   
      bio : new FormControl ("", [Validators.required ] ),
  
-     profile_picture : new FormControl ("", [Validators.required ] )
  
  
  
@@ -48,8 +49,30 @@ export class OrgnizationComponent {
   }
  
   handelSubmitform(){
-   console.log(this.orgnizationregisterform);
-   
+
+    const url =
+    'http://localhost/php-final-project/server/routes/orgnization/orgnization-regester.php';
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.orgnizationregisterform.value),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((res) => {
+      // Assuming the response JSON contains a property named "token"
+      if (res.token) {
+        localStorage.setItem('org-token', res.token);
+      } else {
+        console.error('Token was not provided in the response');
+      }
+    })
+
+  }
   }
 
-}
+
+

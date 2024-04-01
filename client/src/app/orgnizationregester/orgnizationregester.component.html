@@ -163,29 +163,6 @@ class="row mt-4 mb-4 container mx-auto"
 </div>
 
 
-<div class="col-md-6 input col-xxl-12 col-xl-12">
-  <label for="inputEmail4" class="form-label">profile_picture</label>
-  <input
-    type="file"
-    class="form-control"
-    formControlName="profile_picture"
-    name="profile_picture"
-    id="username"
-  />
-
-  @if (orgnizationregisterform.controls['profile_picture'].touched &&
-  orgnizationregisterform.controls['profile_picture'].invalid) {
-
-  <div class="alert alert-danger" role="alert">
-    @if (orgnizationregisterform.controls['profile_picture'].errors?.['required']) {
-    <small>This filed is required</small>
-    
-    } 
-
-  </div>
-
-  }
-</div>
 
 <div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-4 mb-4">
   <textarea
