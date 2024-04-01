@@ -18,7 +18,7 @@ class Database
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ];
-            $this->conn = new PDO($dns, 'username', 'password', $options);
+            $this->conn = new PDO($dns, 'kareem', '195kj3af', $options);
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -76,5 +76,23 @@ class Database
     public function last_id()
     {
         return $this->conn->lastInsertId();
+    }
+
+    public function setTokenNumber($token, $expire_date, $id)
+    {
+        $this->query("INSERT INTO TokenNumbers (tokenNumber, expire_date, session_id) VALUES (?,?,?)");
+        $this->bind(1, $token);
+        $this->bind(2, $expire_date);
+        $this->bind(3, $id);
+        $this->execute();
+    }
+    public function getTokenNumber($token)
+    {
+        $this->query("SELECT id, session_id FROM TokenNumbers WHERE tokenNumber  = '$token'");
+        $status = $this->select();
+        if (!$status) {
+            return false;
+        }
+        return $status['session_id'];
     }
 }

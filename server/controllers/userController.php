@@ -9,14 +9,6 @@ class UserController
         $this->db = $database;
     }
 
-    // *NOTE - get user data function 
-    public function getUser($id)
-    {
-        $this->db->query("SELECT * FROM applicants WHERE id = $id");
-        $user = $this->db->select();
-        unset($user['password']);
-        return json_encode($user);
-    }
 
     // *NOTE - get all users data function 
     public function getAllUsers()
@@ -33,7 +25,7 @@ class UserController
         // *NOTE -  validate data using helper method checkdata 
         if (isset($data->checkData()['error'])) {
             http_response_code(400);   // bad request , user insert faild data
-            return $data->checkData();  // return faild messages to user
+            return json_encode($data->checkData());  // return faild messages to user
         }
 
         // encrypt password
@@ -68,23 +60,27 @@ class UserController
 
 
         $i = 1;
+
         foreach ($userData as $value) {
             $this->db->bind($i++, $value);
         }
 
         $this->db->execute();
-        return json_encode([
-            'success' => 'success insert',
-        ]);
+        $lastId = $this->db->last_id();
+
+        $token = uniqid() . time();
+        $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $lastId);
+        return json_encode(['token' => $token]);
     }
 
     // *NOTE - login for user and orgnization
     public function login(ValidateUserData $data)
     {
+        // return json_encode($data->userData);
         // use helper method to validate user data 
         $chekPassword = $data->validatePassword($data->userData['password']);
         $checkEmail = $data->validateEmail($data->userData['email']);
-        if (count($data->failedData) > 0) {
+        if (count($data->failedData) > 0){
             http_response_code(400);
             return json_encode($data->failedData);
         }
@@ -99,16 +95,49 @@ class UserController
 
             if ($user && password_verify($password, $user['password'])) {
                 // create session for user 
-                session_start();
-                $token = uniqid();
-                $_SESSION[$token] = $user['id'];
+
+                $token = uniqid() . time();
+                $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $user['id']);
                 return json_encode(['token' => $token]);
             } else {
                 // Invalid email or password
+                http_response_code(400);
                 return json_encode([
                     'error' => 'Invalid email or password',
                 ]);
             }
         }
+
+        if ($data->userData['loginas'] == "organization") {
+            $this->db->query("SELECT id, password FROM organizations WHERE email = '$email'");
+            $organization = $this->db->select();
+
+
+            if ($organization && password_verify($password, $organization['password'])) {
+                // create session for user 
+                $token = uniqid() . time();
+                $this->db->setTokenNumber($token, date('Y-m-d H:i:s'), $organization['id']);
+                return json_encode(['token' => $token]);
+            } else {
+                // Invalid email or password
+                http_response_code(400);
+                return json_encode([
+                    'error' => 'Invalid email or password',
+                ]);
+            }
+        }
+    }
+    //NOTE - user profile 
+    public function profile($token)
+    {
+        if (!$this->db->getTokenNumber($token)) {
+            http_response_code(400);
+            return json_encode(['message' => 'somthing wrong']);
+        }
+        $id = $this->db->getTokenNumber($token);
+        $this->db->query("SELECT * FROM applicants WHERE id = $id");
+        $user = $this->db->select();
+        unset($user['password']);
+        return json_encode($user);
     }
 }
