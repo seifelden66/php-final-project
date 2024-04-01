@@ -1,43 +1,74 @@
 {
+<<<<<<< HEAD
   "hash": "6fdefddb",
   "configHash": "1dd9b3ba",
   "lockfileHash": "73b16281",
   "browserHash": "efe9a67e",
+=======
+  "hash": "5f943a9d",
+  "configHash": "49278159",
+  "lockfileHash": "73b16281",
+  "browserHash": "03b4744c",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
   "optimized": {
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
+<<<<<<< HEAD
       "fileHash": "813862a5",
+=======
+      "fileHash": "c7fa4d04",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
       "fileHash": "326748dc",
+=======
+      "fileHash": "300e7c44",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
       "fileHash": "8cdbb1f6",
+=======
+      "fileHash": "01cf505b",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
       "fileHash": "b58d6e06",
+=======
+      "fileHash": "24d1f3c0",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
       "fileHash": "1feebce5",
+=======
+      "fileHash": "d92f9d80",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     },
     "@fortawesome/angular-fontawesome": {
       "src": "../../../../../node_modules/@fortawesome/angular-fontawesome/fesm2022/angular-fontawesome.mjs",
       "file": "@fortawesome_angular-fontawesome.js",
+<<<<<<< HEAD
       "fileHash": "b3b15cbe",
+=======
+      "fileHash": "21028709",
+>>>>>>> c36cecc47d84f4114f05cad99b39e48ed71f1ec1
       "needsInterop": false
     }
   },

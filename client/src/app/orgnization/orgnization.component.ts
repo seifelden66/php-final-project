@@ -10,10 +10,16 @@ import { AddJobsService } from '../services/add-jobs.service';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './orgnization.component.html',
-  styleUrl: './orgnization.component.css',
+  // styleUrl: './orgnization.component.css',
 })
 export class OrgnizationComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const orgToken = localStorage.getItem('org-token');
+    if (!orgToken) {
+      window.location.href = '/login';
+    }
+  }
+
   posts: any = [];
   private postService = inject(JobsService);
   ngOnInit(): void {
@@ -23,6 +29,7 @@ export class OrgnizationComponent implements OnInit {
   loadJobs() {
     this.postService.getPosts.subscribe((jobs: any) => {
       this.posts = jobs;
+      console.log(jobs);
     });
   }
 

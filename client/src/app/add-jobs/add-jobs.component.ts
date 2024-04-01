@@ -27,7 +27,7 @@ export class AddJobsComponent implements OnInit {
       job_type: new FormControl(''),
       location: new FormControl(''),
       expiry_date: new FormControl(''),
-      token: new FormControl('660a11bad24751711935930'),
+      token: new FormControl(localStorage.getItem('org-token')),
     });
   }
 

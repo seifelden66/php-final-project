@@ -13,7 +13,12 @@ import { HttpClient } from '@angular/common/http';
 export class UsersApplayOnJobComponent {
   id: any;
   users: any;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    const orgToken = localStorage.getItem('org-token');
+    if (!orgToken) {
+      window.location.href = '/login';
+    }
+  }
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     const url = `http://localhost/php-final-project/server/routes/orgnization/applicant-data.php?id=${this.id}`;

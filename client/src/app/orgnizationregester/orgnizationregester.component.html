@@ -1,0 +1,195 @@
+<form
+[formGroup]="orgnizationregisterform"
+(ngSubmit)="handelSubmitform()"
+class="row mt-4 mb-4 container mx-auto"
+>
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">username</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="username"
+    name="username"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['username'].touched &&
+  orgnizationregisterform.controls['username'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['username'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+
+    @if (orgnizationregisterform.controls['username'].errors?.['minLength'])
+    {
+
+        <h1>The min characters is 3</h1>
+    
+  }
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">email</label>
+  <input
+    type="email"
+    class="form-control"
+    formControlName="email"
+    name="email"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['email'].touched &&
+  orgnizationregisterform.controls['email'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['email'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+    @if (orgnizationregisterform.controls['email'].errors?.['email'])
+    {
+
+        <small>This email is invalid</small>
+    
+  }
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">password</label>
+  <input
+    type="password"
+    class="form-control"
+    formControlName="password"
+    name="password"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['password'].touched &&
+  orgnizationregisterform.controls['password'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['password'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">orgnization Name </label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="orgName"
+    name="orgName	"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['orgName'].touched &&
+  orgnizationregisterform.controls['orgName'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['orgName'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+    @if (orgnizationregisterform.controls['orgName'].errors?.['minLength'])
+    {
+
+        <h1>The min characters is 3</h1>
+    
+  }
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">contactPerson</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="contactPerson"
+    name="contactPerson"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['contactPerson'].touched &&
+  orgnizationregisterform.controls['contactPerson'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['contactPerson'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+
+  </div>
+
+  }
+</div>
+
+<div class="col-md-6 input col-xxl-12 col-xl-12">
+  <label for="inputEmail4" class="form-label">country</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="country"
+    name="country"
+    id="username"
+  />
+
+  @if (orgnizationregisterform.controls['country'].touched &&
+  orgnizationregisterform.controls['country'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['country'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+  </div>
+
+  }
+
+</div>
+
+
+
+<div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-4 mb-4">
+  <textarea
+    class="form-control"
+    formControlName="bio"
+    placeholder="Bio"
+    name="bio"
+    id="floatingTextarea"
+  ></textarea>
+
+  @if (orgnizationregisterform.controls['bio'].touched &&
+  orgnizationregisterform.controls['bio'].invalid) {
+
+  <div class="alert alert-danger" role="alert">
+    @if (orgnizationregisterform.controls['bio'].errors?.['required']) {
+    <small>This filed is required</small>
+    
+    } 
+
+  </div>
+
+  }
+</div>
+
+<div class="col-12 mt-4 register w-100 d-flex">
+  <button type="submit" [disabled]="orgnizationregisterform.invalid" class="btn btn-primary mx-auto w-25 p-3">
+    register
+  </button>
+</div>
+</form>
