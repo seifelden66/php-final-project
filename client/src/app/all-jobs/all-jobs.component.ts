@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -5,15 +6,20 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './all-jobs.component.html',
-  styleUrl: './all-jobs.component.css'
+  styleUrl: './all-jobs.component.css',
 })
-
 export class AllJobsComponent {
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor (private router : Router){}
+  jobs: any;
+  ngOnInit() {
+    const url =
+      'http://localhost/php-final-project/server/routes/jobs/all-jobs.php';
+    return this.http.get(url).subscribe((res) => (this.jobs = res));
+  }
+  // constructor (private router : Router){}
 
-  redirection(){
+  redirection() {
     this.router.navigate([`singlejobs`]);
   }
-
 }

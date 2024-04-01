@@ -1,0 +1,36 @@
+<div class="row mt-5">
+  @for (application of users; track $index) {
+  <div class="col-lg-6">
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5 class="card-title">{{ application.name }}</h5>
+      </div>
+      <div class="card-body">
+        <p><strong>Email:</strong> {{ application.email }}</p>
+        <p><strong>Country:</strong> {{ application.country }}</p>
+        <p><strong>Education:</strong> {{ application.education }}</p>
+        <p><strong>Experience:</strong> {{ application.experience }}</p>
+        <p><strong>Status:</strong> {{ application.status }}</p>
+        <!-- You can add more fields here if needed -->
+      </div>
+      <div class="card-footer d-flex gap-4">
+        <button class="btn btn-primary">View CV</button>
+        <button
+          (click)="
+            rejectApplication(application.applicant_id, application.job_id)
+          "
+          class="btn btn-primary"
+        >
+          Rejacted
+        </button>
+        <button
+          (click)="inConsidration(application.applicant_id, application.job_id)"
+          class="btn btn-primary"
+        >
+          In Conidration
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+</div>

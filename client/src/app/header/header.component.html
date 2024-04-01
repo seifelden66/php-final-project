@@ -26,17 +26,10 @@
       </ul>
       <div class="Btns d-flex gap-5">
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sign In
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item"  (click)="redirection3()" href="#">Orgnization</a></li>
-            <li><a class="dropdown-item"  (click)="redirection2()" href="#">User</a></li>
-          </ul>
-        </div>
         <button type="button" (click)="redirection()" class="btn btn-light">LogIN</button>
-
+        <button type="button" (click)="redirection2()" class="btn btn-light">User</button>
+        <button type="button" (click)="redirection3()" class="btn btn-light">Orgnization</button>
+  
       </div>
     </div>
   </div>
@@ -47,7 +40,7 @@
 <div class="container-fluid w-100 d-flex d-xxl-none d-xl-none pt-3 pb-3">
   <button class="btn btn-secondary   " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-house"></i></button>
 
-<div class="offcanvas offcanvas-start    " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
 <div class="offcanvas-header">
   <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"><i class="fa-solid fa-house"></i></h5>
   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -56,8 +49,9 @@
 <div class="offcanvas-body">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link " [routerLinkActiveOptions]="{exact:true}" routerLink="/" routerLinkActive="active_link">Home</a>
+        <a class="nav-link " [routerLinkActiveOptions]="{exact:true}" routerLink="" routerLinkActive="active_link">Home</a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" routerLink="#">Link</a>
       </li>
