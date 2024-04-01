@@ -1,6 +1,7 @@
 import {
   DomSanitizer
-} from "./chunk-UEBAAGOC.js";
+} from "./chunk-YXJWBO4O.js";
+import "./chunk-V7T7HQ7G.js";
 import {
   Component,
   Directive,

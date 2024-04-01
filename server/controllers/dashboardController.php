@@ -5,7 +5,6 @@ class DashboardController
     private $db;
     private $session;
 
-
     public function __construct(Database $database)
     {
         $this->db = $database;
