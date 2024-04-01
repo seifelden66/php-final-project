@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { UserService } from './../services/user.service';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -10,6 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+
 
 
   userregesterform :FormGroup;
@@ -26,11 +28,11 @@ export class SignupComponent {
   profile_picture! : any
   error : any = []
     
-
-  constructor (private UserService : UserService){
+  UserService = inject(UserService)
+  constructor (private http : HttpClient){
     this.userregesterform = new FormGroup ({
  
- 
+
       username : new FormControl ("", [Validators.required , Validators.minLength(3)] ),
   
       
@@ -58,7 +60,6 @@ export class SignupComponent {
    
       bio : new FormControl ("", [Validators.required ] ),
   
-      profile_picture : new FormControl ("", [Validators.required ] )
   
   
   
@@ -68,39 +69,30 @@ export class SignupComponent {
     })
   }
 
-  saveuser(){
-    var inputuser = {
-      username : this.username,      
-      email : this.email,      
-      password : this.password,      
-      name : this.name,      
-      country : this.country,      
-      experience : this.experience,      
-      education : this.education,      
-      certifications : this.certifications,      
-      bio : this.bio,      
-      profile_picture : this.profile_picture,      
+  handelSubmitform(){
 
-    }
-
-
-
-    this.UserService.insert(inputuser).subscribe({
-      next : (res:any)=>{
-        console.log(res);
-        
-      },
-      error:(err:any)=>{
-        console.log(err,"error");
+    // console.log(this.userregesterform.value);
+      const url =
+        'http://localhost/php-final-project/server/routes/users/insert-user.php';
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.userregesterform.value),
+      })
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          // Assuming the response JSON contains a property named "token"
+          if (res.token) {
+            localStorage.setItem('token', res.token);
+          } else {
+            console.error('Token was not provided in the response');
+          }
+        })
 
       }
 
-    })
-  }
-
-
-  handelSubmitform(){
-    console.log(this.userregesterform);
-    
-  }
-}
+    }

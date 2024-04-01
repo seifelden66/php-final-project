@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { UserService } from './../services/user.service';
+import { Component, OnInit, inject } from '@angular/core';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,13 +8,27 @@ import { Component } from '@angular/core';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
+
+  UserService = inject(UserService)
 
   user:any={
-    img:"https://th.bing.com/th/id/R.e764fc1c705687a6f4770ac6ead4a955?rik=Ik0ulhYQHntUPg&pid=ImgRaw&r=0",
+    img:"",
     name: "omar",
     About : "Full Stack developer"
   }
+  userdata : any = []
+
+  ngOnInit(): void {
+    this.UserService.getuser().subscribe((res)=> this.userdata = res)
+    
+    
+    
+  }
+  
+
+
+
 
 
 }

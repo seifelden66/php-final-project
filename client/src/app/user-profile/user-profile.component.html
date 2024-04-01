@@ -1,25 +1,23 @@
 <div class="container mt-4 mb-4">
   <div class="row container_profile">
-    <div class="col-3 left_side">
+    <div class="col-xxl-3  col-xl-3 col-12 left_side">
       <div class="container-fluid">
         <div class="row part_1">
           <div class="col-12">
-            <img class="w-75" [src]="user.img" alt="" />
-            <h3>{{ user.name }}</h3>
-            <h6>{{ user.About }}</h6>
+            <img class="w-75" [src]="userdata.profile_picture" alt="" />
+            <h3>{{ userdata.name }}</h3>
+            <h6>{{ userdata.username }}</h6>
           </div>
         </div>
 
         <div class="row part_2">
           <div class="col-12">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
-              reprehenderit quasi consequuntur nostrum itaque, illo cum eaque
-              laudantium numquam architecto!
+              {{userdata.bio}}
             </p>
           </div>
         </div>
-
+<!-- 
         <div class="row part_3">
           <div class="col">
             <h5>Skills</h5>
@@ -37,7 +35,7 @@
               <button>Jquary</button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="row part_4">
           <div class="col">
@@ -63,7 +61,7 @@
       </div>
     </div>
 
-    <div class="col-8 right_side">
+    <div class="col-xxl-8 col-xl-8 col-12 right_side">
       <div class="container-fluid px-5">
 
 
@@ -92,15 +90,15 @@
             
                           <div class="City col-xxl-4 col-xl-4 col-md-4 col-sm-6 col-xs-6 ">
                             <h5>City</h5>
-                            <p>Port Said</p>
+                            <p>{{userdata.country}}</p>
                           </div>
                           <div class="Location col-xxl-4 col-xl-4 col-md-4 col-sm-6 col-xs-6 ">
                             <h5>Location</h5>
-                            <p>Egypt,Port Said</p>
+                            <p>{{userdata.country }}</p>
                           </div>
                           <div class="Email col-xxl-4 col-xl-4 col-md-4 col-sm-6 col-xs-6 ">
                             <h5>Email</h5>
-                            <p>Omar&#64;gmail.com</p>
+                            <p>{{userdata.email}}</p>
                           </div>
                         </div>
                       </div>
@@ -129,8 +127,7 @@
 
                 <div class="exp_data">
                   <h4>Studio</h4>
-                  <h6>Lorem ipsum dolor sit, amet consectetur adipisicing.</h6>
-                  <h6>Lorem ipsum dolor sit.</h6>
+                  <h6>{{userdata.experience}}</h6>
                 </div>
 
               </div>
@@ -141,8 +138,7 @@
 
                 <div class="exp_data">
                   <h4>Studio</h4>
-                  <h6>Lorem ipsum dolor sit, amet consectetur adipisicing.</h6>
-                  <h6>Lorem ipsum dolor sit.</h6>
+                  <h6>{{userdata.experience}}</h6>
                 </div>
 
               </div>
@@ -154,8 +150,7 @@
 
                 <div class="exp_data">
                   <h4>Studio</h4>
-                  <h6>Lorem ipsum dolor sit, amet consectetur adipisicing.</h6>
-                  <h6>Lorem ipsum dolor sit.</h6>
+                  <h6>{{userdata.experience}}</h6>
                 </div>
 
               </div>
@@ -171,7 +166,7 @@
           <div class="col-12 part_3ls mb-4 " >
             <div class="form-floating">
               <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
-              <label for="floatingTextarea">Education</label>
+              <label for="floatingTextarea">{{userdata.education}}</label>
             </div>
         
           </div> 
@@ -179,18 +174,10 @@
           <div class="col-12 part_3ls mb-4 " >
             <div class="form-floating">
               <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
-              <label for="floatingTextarea">Certification</label>
+              <label for="floatingTextarea">{{userdata.certifications}}</label>
             </div>
           </div> 
 
-          <div class="col-12 part_3ls mb-4 " >
-            <div class="form-floating">
-              <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
-              <label for="floatingTextarea">Accomplishments</label>
-            </div>
-
-        
-          </div> 
 
 
 

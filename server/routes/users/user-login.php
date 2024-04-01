@@ -1,19 +1,27 @@
 <?php
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+    header('HTTP/1.1 200 OK');
+    exit;
+}
+
+// Handle other HTTP methods
 require('../../database/database.php');
 require('../../controllers/userController.php');
 require('../../helper/validateUserData.php');
 
-header("content-type: application/json");     // tell the client the response will be json data
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
+header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+header('Content-Type: application/json');
 
-
+$data = file_get_contents("php://input");
+$user = json_decode($data, true);
 
 $obj = new UserController(new Database);
+echo $obj->login(new ValidateUserData($user));
 
-// Assuming you receive user login data through POST request
-$userData = $_POST;
-// Assuming you have a class ValidateUserData that validates user data
-$validator = new ValidateUserData($userData);
-
-echo $obj->login($validator);

@@ -8,9 +8,11 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  url = "http://localhost/php-final-project/server/routes/users/insert-user.php"
-  insert(inputuser :any){
-    return this.http.post(this.url,inputuser);
+
+  getuser(){  
+
+    return this.http.get("http://localhost/php-final-project/server/routes/users/user-profile.php?token=6609a8f79c9b41711909111") 
+
   }
 
 

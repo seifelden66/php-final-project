@@ -5,8 +5,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AllJobsComponent } from './all-jobs/all-jobs.component';
 import { SingleJobsComponent } from './single-jobs/single-jobs.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { IndexComponent } from './index/index.component';
 
 export const routes: Routes = [
+
+{
+    path: "",
+    component:IndexComponent,
+    title:"index-page"
+    
+},
 {
     path: "profile",
     component:UserProfileComponent,

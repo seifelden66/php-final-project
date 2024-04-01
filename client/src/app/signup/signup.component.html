@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="">
     <form
       [formGroup]="userregesterform"
       (ngSubmit)="handelSubmitform()"
-
-      class="row mt-4 mb-4"
+      method="post"
+      class="row mt-4 mb-4 container mx-auto"
     >
       <div class="col-md-6 input col-xxl-12 col-xl-12">
         <label for="inputEmail4" class="form-label">username</label>
@@ -233,40 +233,14 @@
         }
       </div>
 
-      <div class="col-md-6 input col-xxl-12 col-xl-12">
-        <label for="inputEmail4" class="form-label">profile_picture</label>
-        <input
-          type="file"
-          class="form-control"
-          formControlName="profile_picture"
-          name="profile_picture"
-          id="username"
-          [(ngModel)]="profile_picture"
-
-        />
-
-        @if (userregesterform.controls['profile_picture'].touched &&
-        userregesterform.controls['profile_picture'].invalid) {
-
-        <div class="alert alert-danger" role="alert">
-          @if (userregesterform.controls['profile_picture'].errors?.['required']) {
-          <small>This filed is required</small>
-          
-          } 
-
-        </div>
-
-        }
-      </div>
 
       <div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-4 mb-4">
         <textarea
           class="form-control"
           formControlName="bio"
-          placeholder="Bio"
+          placeholder="bio"
           name="bio"
           id="floatingTextarea"
-          [(ngModel)]="bio"
 
         ></textarea>
 

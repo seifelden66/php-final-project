@@ -21,7 +21,7 @@ class ValidateUserData
     {
         $this->validatePassword($this->userData['password']);
         $this->validateEmail($this->userData['email']);
-        $this->validateImage();
+        // $this->validateImage();
         $this->validateUserName();
         $this->validateCountry();
         if (count($this->failedData) > 0) {
