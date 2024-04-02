@@ -27,13 +27,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: solid var(--Nav); */
-  border: var(--border);
-  /* border:  solid .05px rgb(202, 211, 218) ; */
-  border-radius: 8px;
+  border: solid var(--Nav);
+  border-radius: 15px;
   transition: 0.7s ease;
   background-color: white ;
-  /* box-shadow: 1px 1px 10px  gray ; */
 }
 .job_details:hover {
   transform: scale(1.04);

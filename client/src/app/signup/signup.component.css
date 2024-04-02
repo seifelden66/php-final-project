@@ -34,6 +34,7 @@
   
   .form-label {
     font-weight: bold;
+    color: #4F709D;
   }
   
   .form-control {
@@ -69,7 +70,7 @@
   }
   
   .btn-primary:disabled {
-    background-color: #ced4da;
+    background-color: #355681; 
     cursor: not-allowed;
   }
   

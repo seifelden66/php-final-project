@@ -1,4 +1,4 @@
-.input label {
+/* .input label {
   font-size: 22px;
 }
 
@@ -28,4 +28,80 @@
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+/* Reset default form styles */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+/* Form container styles */
+.container {
+  max-width: 600px; /* Adjust as needed */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input field styles */
+.input {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #4F709D; /* Adjust to match Nav color */
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4F709D; /* Adjust to match Nav color */
+}
+
+/* Error message styles */
+.alert {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #dc3545; /* Error color */
+}
+
+/* Bio textarea styles */
+#floatingTextarea {
+  height: 100px;
+}
+
+/* Register button styles */
+.register {
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #4F709D; /* Adjust to match Nav color */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #355681; /* Darker shade of Nav color */
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
