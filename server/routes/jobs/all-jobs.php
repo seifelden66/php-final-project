@@ -25,3 +25,4 @@ $obj = new JobController(new Database);
 
 
 echo $obj->allJob();
+

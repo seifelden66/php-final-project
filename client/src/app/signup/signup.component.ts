@@ -84,8 +84,8 @@ export class SignupComponent {
 
           this.router.navigate([`profile`]);
         } else {
-          console.log(res.error);
+          alert(res.error.error);
         }
-      });
+      })
   }
 }

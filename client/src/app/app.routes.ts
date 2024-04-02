@@ -35,7 +35,7 @@ export const routes: Routes = [
     title:"all-jobs-page"
 },
 {
-    path: "singlejobs",
+    path: "singlejobs/:id",
     component:SingleJobsComponent,
     title:"singlejobs-page"
 },

@@ -1,182 +1,119 @@
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.container{
-    margin: auto;
-
-
-}
-.container_profile{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5px;
-    
-}
-
-/* ======================================================= */
-.left_side{
-    padding: 10px;
-    border-radius: 15px;
-}
-
-.left_side .container-fluid{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.part_1{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: var(--log_text);
-
-}
-
-.part_1 h3{
-    display: flex;
-    justify-content: center;
-    
-}
-.part_1 h6{
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-}
-
-.part_1 p{
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-    width: 100%;
-}
-
-/* ============================ */
-.part_2{
-    text-align: center;
-    font-size: 10px;
-    color: var(--log_text);
-}
-
-/* ============================ */
-
-.part_3{
-    width: 100%;
-    color: var(--log_text);
-}
-
-.skills{
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 7px;
-}
-
-.skills button{
-    border-radius: 20px;
-    background-color:var(--log_text);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-}
-
-/* ============================ */
-
-.part_4{
-    width: 100%;
-    color: var(--log_text);
-}
-
-.part_4 textarea{
-    border: none;    
-    width: 100%;
-}
-
-/* ============================================================= */
-
-/* right_side */
-
-
-
-.userdata{
-    margin: 10px 0px;
-}
-
-.userdata .row{
-    row-gap: 15px;
-}
-
-.userdata .row div p {
-
-    font-weight: 300;
-}
-
-
-
-/* ================================================= */
-/* part_2ls */
-
-/* experiance_container */
-.experiance_container{
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
-}
-
-/* experiances */
-
-.experiances{
-    padding: 15px ;
-    display: flex;
-    align-items: center;
-    gap: 20px;    
-
-    
-}
-
-.experiance_container .experiances:nth-child(1){
-    border-bottom: solid 2px rgb(211, 211, 211);
-}
-.experiance_container .experiances:nth-child(2){
-    border-bottom: solid 2px rgb(211, 211, 211);
-}
-
-.circle{
-    border: solid;
-    display: flex;
+/* .container_profile {
+    background-color: #f3f2ef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .left_side {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .right_side {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .user_Btns button {
+    padding: 5px 15px;
+  }
+  
+  .circle {
+    background-color: #007bff;
     border-radius: 50%;
-    width:60px;
-    height: 60px;
+    color: #ffffff;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--log_text);
-    border: none;
-    color: white;
-
-} 
-
-
-/* =================================================== */
-
-
-/* dropdown-toggle */
-
-.dropdown-toggle{
-    background-color: transparent;
-    color: black;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .experiances {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px ;
+    margin-bottom: 15px;
+  }
+  
+  .experiances .exp_data {
+    margin-left: 10px;
+  }
+  
+  .experiances h4 {
+    margin: 0;
+  }
+  
+  .form-floating textarea {
+    height: 150px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 10px;
+    resize: none;
+  }
+  
+  .form-floating label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .form-floating textarea:focus + label,
+  .form-floating textarea:not(:placeholder-shown) + label {
+    transform: translateY(-30px);
+    font-size: 12px;
+    color: #007bff;
+  }
+   */ body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding-top: 20px;
+}
+h4{ color:#e6c43c ;}
+
+.container_profile {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* dropdown-menu */
-.dropdown-menu{
-    padding: 10px ;
+.part_1, .part_2, .part_4, .part_5, .part_1ls, .part_2ls, .part_3ls {
+    padding: 20px;
+}
 
+.part_1, .part_2, .part_4, .part_5 {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.profile-img {
+    max-width: 120px;
+    border-radius: 50%;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Additional Styles */
+.user_Btns button {
+    padding: 8px 20px;
+}
+
+.experiance_container .experiances {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.experiance_container .experiances .exp_data {
+    margin-left: 10px;
 }

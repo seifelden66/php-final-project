@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body class="">
+  </head> -->
+  <div class="registerFormUser">
     <form
       [formGroup]="userregesterform"
       (ngSubmit)="handelSubmitform()"
@@ -156,7 +156,7 @@
       </div>
 
       <div class="col-md-6 input col-xxl-12 col-xl-12">
-        <label for="inputEmail4" class="form-label">experience</label>
+        <label for="inputEmail4" class="form-label"> Years of Experience</label>
         <input
           type="text"
           class="form-control"
@@ -233,16 +233,16 @@
         }
       </div>
 
-
-      <div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-4 mb-4">
+      <label for="floatingTextarea">Add your Bio</label>
+      <div class="form-floating col-md-6 input col-xxl-12 col-xl-12 mt-2 mb-4">
         <textarea
-          class="form-control"
-          formControlName="bio"
-          placeholder="bio"
-          name="bio"
-          id="floatingTextarea"
-
-        ></textarea>
+        class="form-control"
+        formControlName="bio"
+        placeholder=" "
+        name="bio"
+        id="floatingTextarea"
+      ></textarea>
+    
 
         @if (userregesterform.controls['bio'].touched &&
         userregesterform.controls['bio'].invalid) {
@@ -262,5 +262,5 @@
         </button>
       </div>
     </form>
-  </body>
-</html>
+  </div>
+<!-- </html> -->

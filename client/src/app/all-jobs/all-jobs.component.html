@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body class="mt-4 mb-4">
-    <h2>600 Total Jobs Available</h2>
+
+    
+    <h2 class="mt-4">Total Jobs Available</h2>
     <hr />
 
-    <div class="row contint">
+    <div class="row container">
       <div class="col-12 col-xxl-7 col-xl-7 left_side">
         @for (job of jobs; track job.$id) {
         <div class="row job_details">
@@ -36,9 +30,9 @@
               <i class="fa-solid fa-share-nodes"></i>
             </button>
 
-            <button type="button" class="btn btn-outline-primary p-1">
+            <a routerLink="/singlejobs/{{ job.id }}" type="button" class="btn btn-outline-primary p-1">
               Applay Now
-            </button>
+            </a>
           </div>
         </div>
         }
@@ -80,97 +74,8 @@
               alt=""
             />
           </div>
+ </div>
 
-          <div class="row job_details">
-            <div class="col-2 col-xl-2 col-xxl-2 job_img">
-              <img
-                class=""
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/900px-Wordpress_Blue_logo.png"
-                alt=""
-              />
-            </div>
-
-            <div class="col-12 col-xl-6 col-xxl-6 job_data gap-2">
-              <p>Company Name</p>
-              <h5>company details | Job details</h5>
-
-              <div class="location d-flex gap-2">
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <h6>company Location</h6>
-              </div>
-            </div>
-
-            <div class="col-4 col-xl-3 col-xxl-3 job_btns p-1">
-              <button type="button" class="btn btn-outline-secondary p-1">
-                <i class="fa-solid fa-share-nodes"></i>
-              </button>
-
-              <button type="button" class="btn btn-outline-primary p-1">
-                Applay Now
-              </button>
-            </div>
-          </div>
-
-          <div class="row job_details">
-            <div class="col-2 col-xl-2 col-xxl-2 job_img">
-              <img
-                class=""
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/900px-Wordpress_Blue_logo.png"
-                alt=""
-              />
-            </div>
-
-            <div class="col-12 col-xl-6 col-xxl-6 job_data gap-2">
-              <p>Company Name</p>
-              <h5>company details | Job details</h5>
-
-              <div class="location d-flex gap-2">
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <h6>company Location</h6>
-              </div>
-            </div>
-
-            <div class="col-4 col-xl-3 col-xxl-3 job_btns p-1">
-              <button type="button" class="btn btn-outline-secondary p-1">
-                <i class="fa-solid fa-share-nodes"></i>
-              </button>
-
-              <button type="button" class="btn btn-outline-primary p-1">
-                Applay Now
-              </button>
-            </div>
-          </div>
-
-          <div class="row job_details">
-            <div class="col-2 col-xl-2 col-xxl-2 job_img">
-              <img
-                class=""
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Wordpress_Blue_logo.png/900px-Wordpress_Blue_logo.png"
-                alt=""
-              />
-            </div>
-
-            <div class="col-12 col-xl-6 col-xxl-6 job_data gap-2">
-              <p>Company Name</p>
-              <h5>company details | Job details</h5>
-
-              <div class="location d-flex gap-2">
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <h6>company Location</h6>
-              </div>
-            </div>
-
-            <div class="col-4 col-xl-3 col-xxl-3 job_btns p-1">
-              <button type="button" class="btn btn-outline-secondary p-1">
-                <i class="fa-solid fa-share-nodes"></i>
-              </button>
-
-              <button type="button" class="btn btn-outline-primary p-1">
-                Applay Now
-              </button>
-            </div>
-          </div>
-        </div>
 
         <div class="col-12 apps">
           <h5>Download App</h5>
@@ -255,5 +160,3 @@
         </div>
       </div>
     </div>
-  </body>
-</html>

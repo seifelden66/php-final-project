@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 about-job">
-          <h1>Junior Web Developer (Back-End) - Alexandria</h1>
+          <h1>{{job.job_title}}</h1>
           <div class="d-flex gap-2 mb-2">
             <span class="fu-on">Full Time</span>
             <span class="fu-on">On-site</span>
@@ -12,7 +12,7 @@
           <div class="about-position d-flex mt-4 gap-2">
             <div class="d-flex">
               <div class="about-position-child">
-                <span class="single-page-details-number">223</span>
+                <span class="single-page-details-number">{{job.count_applay}}</span>
                 <div class="d-flex flex-column gap-1">
                   <span class="single-page-details-text"
                     >Applicants for
@@ -24,21 +24,21 @@
               </div>
             </div>
             <div class="about-position-child flex-column gap-2">
-              <span class="single-page-details-number">55 </span>
-              <span class="single-page-details-text"> viewed</span>
+              <span class="single-page-details-number">{{job.pending_count}}</span>
+              <span class="single-page-details-text"> pending</span>
             </div>
 
             <div class="about-position-child flex-column gap-2">
-              <span class="single-page-details-number">10 </span>
+              <span class="single-page-details-number">{{job.in_consideration_count}} </span>
               <span class="single-page-details-text"> In Consideration</span>
             </div>
             <div class="about-position-child flex-column gap-2">
-              <span class="single-page-details-number">44 </span>
+              <span class="single-page-details-number">{{job.rejected_count}}</span>
               <span class="single-page-details-text"> Not Selected</span>
             </div>
           </div>
           <hr class="my-3 border-secondary" />
-          <button type="button" class="btn btn-primary applay-for-job">
+          <button (click)="applay(job.job_id)" type="button" class="btn btn-primary applay-for-job">
             Applay For Job
           </button>
         </div>
@@ -47,8 +47,8 @@
         <div class="col-12 about-job mb-4">
           <h1 class="mb-4">Job Details</h1>
           <div class="job-details d-flex gap-3">
-            <span class="single-page-details-text">Experience Needed:</span>
-            <span>0 To 3 Years</span>
+            <span class="single-page-details-text">Location :</span>
+            <span>{{job.location}}</span>
           </div>
           <div class="job-details d-flex gap-3">
             <span class="single-page-details-text">Career Level:</span>
@@ -61,18 +61,7 @@
           <hr class="my-3 border-secondary" />
           <h1>Job Descreption</h1>
           <p class="single-page-details-text pt-2">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis cum
-            dolor ipsa! Atque quisquam quis hic et praesentium, non tempore,
-            molestias quaerat natus sapiente inventore! Amet totam molestiae
-            repudiandae quam cupiditate. Distinctio voluptatibus aperiam nihil
-            modi commodi placeat quidem consequuntur, impedit quos quaerat
-            assumenda quia ad vero vel quam nesciunt esse tempora architecto
-            accusamus, optio ea culpa ipsum neque. Architecto, alias
-            voluptatem ipsa distinctio obcaecati corrupti aliquid ab, optio
-            rerum illum, et esse omnis culpa nam rem quam modi harum dolorum
-            blanditiis fugiat perspiciatis mollitia in? Perspiciatis
-            voluptatem, harum distinctio voluptates quisquam error ducimus
-            molestias iure, cumque soluta dolorum. Maiores.
+           {{job.description}}
           </p>
         </div>
       </div>

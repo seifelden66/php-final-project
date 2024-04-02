@@ -1,0 +1,63 @@
+/* Custom styles for login form */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  
+.container > .mb-3 > div > h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .form-control {
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-text {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Radio button styles */
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Optional: Adjust styles to match LinkedIn and Wuzzuf */
+  
