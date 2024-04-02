@@ -1,6 +1,5 @@
 <?php
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
@@ -24,4 +23,3 @@ $user = json_decode($data, true);
 
 $obj = new UserController(new Database);
 echo $obj->login(new ValidateUserData($user));
-

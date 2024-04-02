@@ -55,9 +55,10 @@ class ValidateUserData
         if ($fileType != 'image') {
             return $this->failedData['profile_picture'] = "Please choose correct file";
         }
-        $new_name = uniqid();
-        move_uploaded_file($_FILES['profile_picture']['tmp_name'], "./../../public/images/" . $new_name);
-        $this->userData['profile_picture'] = $new_name;
+
+        // $new_name = uniqid();
+        move_uploaded_file($_FILES['profile_picture']['tmp_name'], "./../../public/images/" . $_FILES['profile_picture']['name']);
+        $this->userData['profile_picture'] = $_FILES['profile_picture']['name'];
     }
 
     // *NOTE - function validate user name

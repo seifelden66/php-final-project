@@ -1,33 +1,55 @@
-<form class="container"
-[formGroup]="loginform"
-(ngSubmit)="handelloginform()"
 
 
->
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<form class="container my-5 " [formGroup]="loginform" (ngSubmit)="handelloginform()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      id="exampleInputEmail1"
+      name="email"
+      aria-describedby="emailHelp"
+    />
+    <div id="emailHelp" class="form-text">
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" name="password" class="form-label"
+      >Password</label
+    >
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      id="exampleInputPassword1"
+    />
+  </div>
+
+  <div class="mb-3 d-flex gap-5 aline-center">
+    <div class="d-flex gap-3 aline-center">
+      <label for="user">user</label>
+      <input
+        type="radio"
+        id="user"
+        value="user"
+        formControlName="loginas"
+        name="loginas"
+      />
     </div>
 
-    <div class="mb-3">
-      <label for="exampleInputPassword1" name="password"  class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+    <div class="d-flex gap-3 aline-center">
+      <label for="orgnization">orgnization</label>
+      <input
+        type="radio"
+        id="orgnization"
+        formControlName="loginas"
+        value="organization"
+        name="loginas"
+      />
     </div>
-
-    <div class="mb-3 d-flex gap-5 aline-center">
-       
-      <div class="d-flex gap-3 aline-center">
-            <label for="user">user</label>
-            <input type="radio" id="user" value="user" formControlName="loginas" name="loginas">
-        </div>
-
-        <div class="d-flex gap-3 aline-center">
-
-            <label for="orgnization">orgnization</label>
-            <input type="radio" id="orgnization" formControlName="loginas" value="organization" name="loginas">
-
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

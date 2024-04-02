@@ -19,8 +19,29 @@ class JobController
 
     public function singleJob($id)
     {
-        // $this->db->query("SELECT ");
-        // return json_encode($id);
+        $this->db->query("SELECT
+        j.id AS job_id,
+        j.title AS job_title,
+        j.description as description,
+        j.location as location,
+        j.job_type as job_type,
+        j.is_open as is_open,
+        COUNT(a.job_id) AS count_applay,
+        COUNT(CASE WHEN a.status = 'pending' THEN 1 END) AS pending_count,
+        COUNT(CASE WHEN a.status = 'rejacted' THEN 1 END) AS rejected_count,
+        COUNT(CASE WHEN a.status = 'in considration' THEN 1 END) AS in_consideration_count
+            FROM
+                jobs j
+            LEFT JOIN
+                applications a ON j.id = a.job_id
+            WHERE
+                j.id = $id
+            GROUP BY
+                j.id, j.title, a.job_id;
+            
+        ");
+        $job = $this->db->select();
+        return json_encode($job);
     }
 
     // NOTE - function create job 

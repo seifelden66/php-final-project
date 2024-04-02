@@ -21,7 +21,7 @@ export class HeaderComponent {
   }
   
   redirection3(){
-    this.router.navigate([`orgnization`])
+    this.router.navigate([`orgnizationregester`])
   }
   
 

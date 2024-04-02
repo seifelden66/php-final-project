@@ -1,0 +1,11 @@
+.add_job{
+    padding: 15px 0px ;
+    width: 30%;
+    
+}
+.link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px 0px ;
+}

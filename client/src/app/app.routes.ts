@@ -4,8 +4,17 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AllJobsComponent } from './all-jobs/all-jobs.component';
 import { SingleJobsComponent } from './single-jobs/single-jobs.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { IndexComponent } from './index/index.component';
+import { AddJobsComponent } from './add-jobs/add-jobs.component';
+import { UsersApplayOnJobComponent } from './users-applay-on-job/users-applay-on-job.component';
 import { OrgnizationregesterComponent } from './orgnizationregester/orgnizationregester.component';
+import { IndexComponent } from './index/index.component';
+import { OrgnizationComponent } from './orgnization/orgnization.component';
+
+
+ 
+  
+ 
+
 
 export const routes: Routes = [
 
@@ -41,10 +50,41 @@ export const routes: Routes = [
     title:"sign-up-page"
 },
 {
-    path: "orgnization",
+    path: "orgnizationregester",
     component:OrgnizationregesterComponent,
     title:"orgnization-page"
 },
 
 
+  {
+    path: 'login',
+    component: LogInComponent,
+    title: 'log-in-page',
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    title: 'sign-up-page',
+  },
+  {
+    path: 'organization',
+    component: OrgnizationComponent,
+    title: 'orgnization-page',
+  },
+  {
+    path: 'add-job',
+    component: AddJobsComponent,
+    title: 'addJob-page',
+  },
+  {
+    path: 'users-applay-on-job/:id',
+    component: UsersApplayOnJobComponent,
+    title: 'users applayd',
+  },
+
+  {
+    path: '**',
+    component: LogInComponent,
+    title: 'users applayd',
+  },
 ];

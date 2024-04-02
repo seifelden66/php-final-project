@@ -2,25 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService implements OnInit {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
-    
-    
+  getuser() {
+    let token = localStorage.getItem('user-token');
+    return this.http.get(
+      `http://localhost/php-final-project/server/routes/users/user-profile.php?token=${token}`
+    );
   }
-
-  getuser(){  
-    let token = localStorage.getItem("user-token")
-
-    return this.http.get(`http://localhost/php-final-project/server/routes/users/user-profile.php?token=${token}`) 
-
-  }
-
-
-
 }
